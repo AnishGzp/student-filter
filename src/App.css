@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "DM Serif Text", serif;
+  background-color: #e3fdfd;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+
+  padding: 20px;
+
+  h3,
+  h4 {
+    margin: 0;
+    font-weight: 550;
+  }
+
+  .instruction {
+    background-color: rgba(14, 25, 40, 0.236);
+    padding: 20px;
+    border-radius: 10px;
+    h4 {
+      font-size: 16px;
+    }
+  }
+
+  ul {
+    margin: 0;
+  }
+
+  .inputBox {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+
+      input {
+        background-color: rgba(14, 25, 40, 0.236);
+        border: none;
+        outline: none;
+        padding: 10px;
+        border-radius: 10px;
+      }
+    }
+
+    textarea {
+      height: 150px;
+      width: 100%;
+
+      background-color: rgba(14, 25, 40, 0.236);
+      border: none;
+      outline: none;
+      padding: 10px;
+      border-radius: 10px;
+    }
+
+    button {
+      border: none;
+      outline: none;
+      padding: 15px;
+      background-color: #8789f8;
+      color: white;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+  }
+
+  .detailBox {
+    width: 100%;
+    table {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .container {
+    font-size: 12px;
+    .instruction {
+      padding: 10px;
+      h4 {
+        font-size: 12px;
+      }
+    }
+
+    .inputBox {
+      textarea {
+        height: 60px;
+      }
+    }
+
+    .detailBox {
+      overflow: auto;
+      padding: 20px;
+      table {
+        min-width: 400px;
+      }
+    }
+  }
+}
