@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
@@ -13,6 +13,10 @@ function App() {
     bw80and90: [],
     above90: [],
   });
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const [pass, setPass] = useState("");
 
   const handleSubmit = () => {
     const marksArray = studentMarks
@@ -60,11 +64,34 @@ function App() {
     });
   };
 
-  console.log(summary);
+  const APP_PASS = import.meta.env.VITE_APP_PASSWORD;
 
-  return (
+  const appPass = localStorage.getItem("appPass");
+
+  useEffect(() => {
+    if (appPass) {
+      setIsLoggedIn(() => {
+        return appPass.trim() === APP_PASS;
+      });
+    }
+  }, []);
+
+  const handleLogin = () => {
+    if (pass) {
+      pass.trim() === APP_PASS && setIsLoggedIn(true);
+      localStorage.setItem("appPass", pass.trim());
+    }
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    localStorage.removeItem("appPass");
+  };
+
+  return isLoggedIn ? (
     <div className="container">
       <h3>Students Filter on Percentage</h3>
+      <button onClick={handleLogout}>Logout</button>
       <div className="instruction">
         <h4>Instruction</h4>
         <ul>
@@ -125,6 +152,16 @@ function App() {
           </tbody>
         </table>
       </div>
+    </div>
+  ) : (
+    <div className="passContainer">
+      <input
+        type="number"
+        placeholder="Enter the password"
+        value={pass}
+        onChange={(e) => setPass(e.target.value)}
+      />
+      <button onClick={handleLogin}>Login</button>
     </div>
   );
 }

@@ -115,3 +115,28 @@ body {
     }
   }
 }
+
+.passContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  gap: 20px;
+
+  input {
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+  }
+}
+button {
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  background-color: #8789f8;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+}
