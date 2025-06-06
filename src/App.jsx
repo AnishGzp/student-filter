@@ -80,6 +80,7 @@ function App() {
     if (pass) {
       pass.trim() === APP_PASS && setIsLoggedIn(true);
       localStorage.setItem("appPass", pass.trim());
+      setPass("");
     }
   };
 
@@ -156,7 +157,7 @@ function App() {
   ) : (
     <div className="passContainer">
       <input
-        type="number"
+        type="password"
         placeholder="Enter the password"
         value={pass}
         onChange={(e) => setPass(e.target.value)}
